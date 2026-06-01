@@ -14,7 +14,7 @@ export default function App() {
           <Text style={estilos.rotulo}>Nome:</Text><TextInput style={estilos.campo} placeholder='João da Silva...' onChangeText={(y) => {setNome(y)}} value={nome}/>
         </View>
         <View style={estilos.linha}>
-          <Text style={estilos.rotulo}>Receber notificações?</Text><Switch trackColor={{ false: '#cc9999', true: '#81ffb0'}} value={not} onValueChange={(y)=>{setNot(y)}} thumbColor={not ? '#2196f3' : 'f4f3f4'} />
+          <Text style={estilos.rotulo}>Receber notificações?</Text><Switch trackColor={{ false: '#cc9999', true: '#81ffb0'}} value={not} onValueChange={y=>{setNot(y)}} thumbColor={not ? '#2196f3' : 'f4f3f4'} />
         </View>
         <View><Text style={estilos.rotulo}>Dificuldade</Text><Slider trackColor={{ false: '#cc9999', true: '#81ffb0'}} /></View>
         <View style={estilos.qdResultado}>
