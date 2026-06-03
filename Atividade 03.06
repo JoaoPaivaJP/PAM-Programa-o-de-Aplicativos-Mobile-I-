@@ -12,7 +12,7 @@ export default function App() {
         <Text style={estilos.titulo}>Configurações de perfil</Text> 
         <View>
           <Text style={estilos.rotulo}>Nome:</Text>
-          <TextInput style={estilos.campo} placeholder="José da Silva..." onChangeText={(valor) => { setNome(valor) }} value={nome} />
+          <TextInput style={estilos.campo} placeholder="João Pedro Souza Paiva" onChangeText={(valor) => { setNome(valor) }} value={nome} />
         </View> 
         <View style={estilos.linha}>
           <Text style={estilos.rotulo}>Receber notificações:</Text><Switch onValueChange={(valor)=>{ setNot(valor) }} value={not} trackColor={{ false: "#cc9999", true: "#81ffb0" }} thumbColor={not ? "#2196f3" : '#f4f3f4'} />
