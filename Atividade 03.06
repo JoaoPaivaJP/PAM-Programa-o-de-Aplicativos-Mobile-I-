@@ -3,37 +3,22 @@ import { View, Text, TextInput, Switch, ScrollView, StyleSheet } from 'react-nat
 import Slider from '@react-native-community/slider'; 
 
 export default function App() { 
-  const [nome, setNome] = useState(''); 
-  const [not, setNot] = useState(true); 
-  const [dif, setDif] = useState(5); 
+  const { nome, setNome } = useState(''); 
+  const { not, setNot } = useState(true); 
+  const { dif, setDif } = useState(5); 
   return (
     <View style={estilos.contenedor}>
       <ScrollView>
         <Text style={estilos.titulo}>Configurações de perfil</Text> 
         <View>
           <Text style={estilos.rotulo}>Nome:</Text>
-          <TextInput 
-            style={estilos.campo} 
-            placeholder="José da Silva..." 
-            onChangeText={(valor) => { setNome(valor) }} 
-            value={nome} 
-          />
+          <TextInput style={estilos.campo} placeholder="José da Silva..." onChangeText={(valor) => { setNome(valor) }} value={nome} />
         </View> 
         <View style={estilos.linha}>
-          <Text style={estilos.rotulo}>Receber notificações:</Text>
-          <Switch 
-            onValueChange={(valor) => { setNot(valor) }} 
-            value={not} 
-            trackColor={{ false: "#cc9999", true: "#81ffb0" }} 
-            thumbColor={not ? "#2196f3" : '#f4f3f4'} />
+          <Text style={estilos.rotulo}>Receber notificações:</Text><Switch onValueChange={(valor)=>{ setNot(valor) }} value={not} trackColor={{ false: "#cc9999", true: "#81ffb0" }} thumbColor={not ? "#2196f3" : '#f4f3f4'} />
         </View> 
         <View>
-          <Text style={estilos.rotulo}>Nível de dificuldade:</Text>
-          <Slider 
-            minimumValue={1} 
-            maximumValue={10} 
-            minimumTrackTintColor="#cc0000" 
-            maximumTrackTintColor="#000" />
+          <Text style={estilos.rotulo}>Nível de dificuldade:</Text><Slider minimumValue={1} maximumValue={10} minimumTrackTintColor="#cc0000" maximumTrackTintColor="#000" />
         </View> 
         <View style={estilos.qdResultado}> 
           <Text style={estilos.rotulo}>Dados:</Text> 
