@@ -32,7 +32,7 @@ export default function App() {
           <Button title = "Mostrar Dados" onPress={mostrarDados} />
         </View>
         <View style={estilos.qdResultado}> 
-          <Text style={estilos.rotulo}>Dados: </Text> 
+          <Text style={estilos.rotulo}>Dados Recebidos: </Text> 
           <Text style={estilos.rotulo}>Input: {nomeRes}</Text> 
           <Text style={estilos.rotulo}>Switch: {notRes?'True':'False'}</Text> 
             <Text style={estilos.rotulo}>Slider: {difRes}</Text> 
