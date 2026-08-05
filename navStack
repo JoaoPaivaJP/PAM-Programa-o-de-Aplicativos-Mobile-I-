@@ -1,0 +1,22 @@
+import { NavigationContainer } from '@react-navigation/native';
+
+import Home from "./fonte/Home";
+import Flex from "./fonte/Flex";
+import Login from "./fonte/Login";
+import Sobre from "./fonte/Sobre";
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
+
+export default function App(){
+  return(
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Flex" component={Flex} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Sobre" component={Sobre} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
