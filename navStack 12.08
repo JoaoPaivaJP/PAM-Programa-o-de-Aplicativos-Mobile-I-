@@ -1,0 +1,87 @@
+Fonte:
+Flex.js:
+import { View, Text } from 'react-native';
+
+export default function Flex() {
+    return (
+        <View>
+            <Text>Teste do Flex</Text>
+        </View>
+    )
+}
+
+Home.js:
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+export default function Home() {
+    const nav = useNavigation();
+    return (
+        <View style={estilos.contenedor}>
+            <Text style={estilos.txt}>Bem-vindo!</Text>
+            <Button title="Sobre Nos" onPress={() => nav.navigate('Sobre')} />
+            <Button title='Entrar' onPress={() => nav.navigate('Login')} />
+            <Button title="Estudo de Flex" onPress={() => nav.navigate('Flex')} />
+        </View>
+    )
+}
+const estilos = StyleSheet.create({
+    contenedor: {
+        flex: 1, gap: 15, justifyContent: 'center', alignItems: 'center'
+    },
+    txt: {
+        fontSize: 30
+    }
+})
+
+Sobre.js:
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import Flex from './Flex';
+
+export default function Sobre() {
+    return (
+        <View style={estilos.contenedor}>
+            <ScrollView style={estilos.rolagem}>
+                <Text style={estilos.txt}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet erat massa. Duis ultricies, ipsum sit amet aliquet molestie, orci justo aliquet mauris, quis iaculis mauris dolor vitae sem. Vestibulum ullamcorper tortor et scelerisque scelerisque. Sed egestas mi eget enim laoreet, vehicula tempus tortor semper. Integer lacinia diam ac tellus venenatis bibendum. Aliquam massa ipsum, vestibulum quis tortor non, varius tincidunt risus. Etiam ornare tincidunt augue non porttitor. Etiam nec ullamcorper est. Sed pretium, ex sit amet pellentesque egestas, purus velit cursus lorem, eget venenatis sem ipsum ut diam. Ut consequat egestas libero a aliquet. Ut placerat at felis nec vehicula. Vestibulum congue enim metus, et sodales quam efficitur et. Pellentesque semper ornare cursus.
+
+                </Text>
+                <Text style={estilos.txt}>Quisque egestas, ante in fringilla suscipit, justo velit dapibus metus, et vestibulum odio sapien ut dolor. Suspendisse ac porttitor ligula. Maecenas enim nunc, dignissim ac dolor in, posuere ultrices libero. Pellentesque tincidunt ex nunc, vel viverra augue consequat at. Pellentesque gravida orci non velit egestas volutpat. Nam vel ipsum sed massa sollicitudin tempor. Nulla a leo eu eros efficitur faucibus id ac mi. Donec ut scelerisque odio, eget luctus ex. Quisque velit nisi, scelerisque sed placerat quis, blandit id felis. Nullam mauris erat, efficitur in cursus quis, pellentesque eget lectus. Fusce luctus facilisis est, ac efficitur magna consequat at.
+
+                </Text>
+                <Text style={estilos.txt}>Aenean tempor, lorem ac mattis condimentum, lorem tortor faucibus elit, sed consequat leo nunc a erat. Nulla bibendum ut ex porta posuere. Nulla leo purus, tincidunt vitae ullamcorper a, varius maximus sem. Etiam at aliquam lacus. Morbi pharetra odio mauris, eget condimentum orci iaculis fringilla. Vivamus tincidunt odio sit amet luctus dignissim. Nam suscipit libero justo, vitae venenatis ligula consectetur sed. Vestibulum et lacus tortor. Proin feugiat, ante vel fringilla lobortis, magna turpis lacinia eros, at cursus nisl purus eget sem. Etiam luctus ex ut felis rhoncus condimentum. Integer a leo ultrices, pulvinar massa eu, vestibulum quam. Aenean odio mauris, varius eget elit vitae, volutpat bibendum ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+                </Text>
+                <Text style={estilos.txt}>Vivamus vitae lobortis neque, ut eleifend mauris. Sed quis mauris hendrerit, molestie nulla eget, fermentum justo. Morbi mattis tortor in posuere rutrum. Vivamus venenatis nunc enim, ac rhoncus nisi sodales quis. In tempor commodo tellus, porta efficitur magna aliquet in. Aenean ullamcorper odio dictum quam eleifend maximus. Vivamus at augue sodales, fringilla mi sit amet, luctus magna.
+
+                </Text>
+                <Text style={estilos.txt}> Nulla molestie rutrum erat, consectetur egestas purus malesuada sit amet. Cras vestibulum ante nisl. In imperdiet imperdiet sem id accumsan. Donec eleifend finibus facilisis. Nunc fermentum, est a fermentum volutpat, dui erat maximus nunc, quis cursus diam massa in ex. Phasellus eros orci, rhoncus non vulputate eu, tincidunt quis nisi. Nullam id ultricies metus, ac maximus lectus. Pellentesque congue lacus in metus aliquam suscipit. Vestibulum eget risus porttitor, varius diam at, fringilla diam. Etiam elementum odio eget convallis congue. Pellentesque non turpis sed ante pellentesque sodales. Suspendisse gravida ante in nulla elementum dictum.</Text>
+            </ScrollView>
+        </View>
+    )
+}
+
+const estilos = StyleSheet.create({
+    contenedor: {
+        Flex: 1, backgroundColor: #f5f5f5
+    }
+    txt: {
+        fontSize: 16, lineHeight: 26, color: #444, marginBottom: 20, textAlign: 'justify'
+    }
+    rolagem: {
+        paddingHorizontal: 20, paddingVertical: 20
+    }
+})
+
+
+Login.js:
+import { View, Text } from 'react-native';
+
+export default function Login() {
+    return (
+        <View>
+            <Text>Logado</Text>
+        </View>
+    )
+}
+
+App.js:
