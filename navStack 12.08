@@ -85,3 +85,27 @@ export default function Login() {
 }
 
 App.js:
+import { NavigationContainer } from "@react-navigation/native";
+
+import Home from './fonte/telas/Home';
+import Flex from "./fonte/telas/Flex";
+import Login from "./fonte/telas/Login";
+import Sobre from "./fonte/telas/Sobre";
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="Home" component={Home} options={{
+                    headerShown: false
+                }} />
+                <Stack.Screen name="Flex" component={Flex} />
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="Sobre" component={Sobre} options={{ title }} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
