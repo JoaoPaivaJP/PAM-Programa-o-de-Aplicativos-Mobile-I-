@@ -8,26 +8,16 @@ export default function Flex() {
   return (
     // View principal que utiliza o estilo "contenedor"
     <View style={estilos.contenedor} >
-
-      // View da esquerda, utilizando o estilo "esq"
-      <View style={estilos.esq}>
-        // Texto "Esquerda" utilizando o estilo "txt"
-        <Text style={estilos.txt}>Esquerda</Text>
+      <View style={estilos.esq}> {/* View da esquerda, utilizando o estilo "esq" */}
+        <Text style={estilos.txt}>Esquerda</Text> {/* Texto "Esquerda" utilizando o estilo "txt" */}
       </View >
-
-      // View central, utilizando o estilo "centro"
-      <View style={estilos.centro}>
-        // Texto "Centro" utilizando o estilo "txt"
-        <Text style={estilos.txt} >Centro</Text>
+      <View style={estilos.centro}> {/* View central, utilizando o estilo "centro" */}
+        <Text style={estilos.txt} >Centro</Text> {/* Texto "Centro" utilizando o estilo "txt" */}
       </View >
-
-      // View da direita, utilizando o estilo "dir"
-      <View style={estilos.dir}>
-        // Texto "Direita" utilizando o estilo "txt"
-        <Text style={estilos.txt}>Direita</Text>
+      <View style={estilos.dir}> {/* View da direita, utilizando o estilo "dir" */}
+        <Text style={estilos.txt}>Direita</Text> {/* Texto "Direita" utilizando o estilo "txt" */}
       </View>
-
-    // Fecha a View principal
+      {/* Fecha a View principal */}
     </View >
   );
 }
@@ -37,80 +27,45 @@ const estilos = StyleSheet.create({
 
   // Estilo aplicado ao container principal
   contenedor: {
-    // Faz o container ocupar todo o espaço disponível
-    flex: 1,
-
-    // Define a cor de fundo do container
-    backgroundColor: '#f5f5f5',
-
-    // Coloca os elementos filhos lado a lado, na horizontal
-    flexDirection: 'row'
+    flex: 1, // Faz o container ocupar todo o espaço disponível
+    backgroundColor: '#f5f5f5', // Define a cor de fundo do container
+    flexDirection: 'row' // Coloca os elementos filhos lado a lado, na horizontal
   },
 
   // Estilo da coluna da esquerda
   esq: {
-    // Define a proporção de espaço que essa View ocupa
-    flex: 1,
-
-    // Define a cor de fundo roxa
-    backgroundColor: '#6200ee',
-
-    // Alinha o conteúdo no início do eixo principal (topo)
-    justifyContent: 'flex-start', //Eixo vertical: Topo 
-
-    // Alinha o conteúdo no centro do eixo transversal (horizontal)
-    alignItems: 'center'          //eixo horizontal: Centro 
+    flex: 1, // Define a proporção de espaço que essa View ocupa
+    backgroundColor: '#6200ee', // Define a cor de fundo roxa
+    justifyContent: 'flex-start', //Eixo vertical: Topo // Alinha o conteúdo no início do eixo principal (topo)
+    alignItems: 'center' //eixo horizontal: Centro // Alinha o conteúdo no centro do eixo transversal (horizontal)
   },
 
   // Estilo da coluna central
   centro: {
-    // Define a proporção de espaço que essa View ocupa
-    flex: 6,
-
-    // Define a cor de fundo cinza
-    backgroundColor: '#666',
-
-    // Distribui o conteúdo no eixo transversal
-    // OBS: com apenas um elemento filho, esse efeito não é perceptível
-    alignContent: "space-between", //Eixo vertical: Separa o topo e base (caso haja mais de um elemento) ou empurra para as pontas 
-
-    // Alinha os elementos filhos à direita
-    alignItems: 'flex-end'         //Eixo horizontal: Direita 
+    flex: 6, // Define a proporção de espaço que essa View ocupa
+    backgroundColor: '#666', // Define a cor de fundo cinza
+    alignContent: "space-between", //Eixo vertical: Separa o topo e base (caso haja mais de um elemento) ou empurra para as pontas
+    alignItems: 'flex-end' //Eixo horizontal: Direita // Alinha os elementos filhos à direita
   },
 
   // Estilo da coluna da direita
   dir: {
-    // Define a proporção de espaço que essa View ocupa
-    flex: 1,
-
-    // Define a cor de fundo verde/azulada
-    backgroundColor: '#03dac6',
-
-    // Alinha o conteúdo no final do eixo principal (base)
-    justifyContent: 'flex-end', //Eixo vertical: Base 
-
-    // Alinha o conteúdo no início do eixo transversal (esquerda)
-    alignItems: 'flex-start'    //Eixo horizontal: Esquerda 
+    flex: 1, // Define a proporção de espaço que essa View ocupa 
+    backgroundColor: '#03dac6', // Define a cor de fundo verde/azulada  
+    justifyContent: 'flex-end', //Eixo vertical: Base // Alinha o conteúdo no final do eixo principal (base)
+    alignItems: 'flex-start'    //Eixo horizontal: Esquerda // Alinha o conteúdo no início do eixo transversal (esquerda)
   },
 
   // Estilo utilizado pelos três textos
   txt: {
-    // Define a cor do texto como branca
-    color: 'white',
-
-    // Deixa o texto em negrito
-    fontWeight: 'bold',
-
-    // Centraliza o texto
-    textAlign: 'center',
-
-    // Define o tamanho da fonte como 14
-    fontSize: 14
+    color: 'white', // Define a cor do texto como branca
+    fontWeight: 'bold', // Deixa o texto em negrito   
+    textAlign: 'center', // Centraliza o texto
+    fontSize: 14 // Define o tamanho da fonte como 14
   }
 
   // Fecha a criação dos estilos
 });
-
 Sobre.js:
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 export default function Sobre() {
