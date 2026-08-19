@@ -1,0 +1,217 @@
+Flex.js:
+// Importa os componentes View e Text e as funções de estilo StyleSheet do React Native
+import { View, Text, StyleSheet } from 'react-native';
+
+// Cria e exporta o componente chamado Flex
+export default function Flex() {
+  // Retorna a estrutura visual que será exibida na tela
+  return (
+    // View principal que utiliza o estilo "contenedor"
+    <View style={estilos.contenedor} >
+
+      // View da esquerda, utilizando o estilo "esq"
+      <View style={estilos.esq}>
+        // Texto "Esquerda" utilizando o estilo "txt"
+        <Text style={estilos.txt}>Esquerda</Text>
+      </View >
+
+      // View central, utilizando o estilo "centro"
+      <View style={estilos.centro}>
+        // Texto "Centro" utilizando o estilo "txt"
+        <Text style={estilos.txt} >Centro</Text>
+      </View >
+
+      // View da direita, utilizando o estilo "dir"
+      <View style={estilos.dir}>
+        // Texto "Direita" utilizando o estilo "txt"
+        <Text style={estilos.txt}>Direita</Text>
+      </View>
+
+    // Fecha a View principal
+    </View >
+  );
+}
+
+// Cria uma folha de estilos chamada "estilos"
+const estilos = StyleSheet.create({
+
+  // Estilo aplicado ao container principal
+  contenedor: {
+    // Faz o container ocupar todo o espaço disponível
+    flex: 1,
+
+    // Define a cor de fundo do container
+    backgroundColor: '#f5f5f5',
+
+    // Coloca os elementos filhos lado a lado, na horizontal
+    flexDirection: 'row'
+  },
+
+  // Estilo da coluna da esquerda
+  esq: {
+    // Define a proporção de espaço que essa View ocupa
+    flex: 1,
+
+    // Define a cor de fundo roxa
+    backgroundColor: '#6200ee',
+
+    // Alinha o conteúdo no início do eixo principal (topo)
+    justifyContent: 'flex-start', //Eixo vertical: Topo 
+
+    // Alinha o conteúdo no centro do eixo transversal (horizontal)
+    alignItems: 'center'          //eixo horizontal: Centro 
+  },
+
+  // Estilo da coluna central
+  centro: {
+    // Define a proporção de espaço que essa View ocupa
+    flex: 6,
+
+    // Define a cor de fundo cinza
+    backgroundColor: '#666',
+
+    // Distribui o conteúdo no eixo transversal
+    // OBS: com apenas um elemento filho, esse efeito não é perceptível
+    alignContent: "space-between", //Eixo vertical: Separa o topo e base (caso haja mais de um elemento) ou empurra para as pontas 
+
+    // Alinha os elementos filhos à direita
+    alignItems: 'flex-end'         //Eixo horizontal: Direita 
+  },
+
+  // Estilo da coluna da direita
+  dir: {
+    // Define a proporção de espaço que essa View ocupa
+    flex: 1,
+
+    // Define a cor de fundo verde/azulada
+    backgroundColor: '#03dac6',
+
+    // Alinha o conteúdo no final do eixo principal (base)
+    justifyContent: 'flex-end', //Eixo vertical: Base 
+
+    // Alinha o conteúdo no início do eixo transversal (esquerda)
+    alignItems: 'flex-start'    //Eixo horizontal: Esquerda 
+  },
+
+  // Estilo utilizado pelos três textos
+  txt: {
+    // Define a cor do texto como branca
+    color: 'white',
+
+    // Deixa o texto em negrito
+    fontWeight: 'bold',
+
+    // Centraliza o texto
+    textAlign: 'center',
+
+    // Define o tamanho da fonte como 14
+    fontSize: 14
+  }
+
+  // Fecha a criação dos estilos
+});
+
+Sobre.js:
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
+export default function Sobre() {
+    return (
+        <View style={estilos.contenedor}>
+            <ScrollView style={estilos.rolagem}>
+                <Text style={estilos.txt}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus cursus dapibus. Vivamus ipsum augue, convallis at risus quis, posuere bibendum velit. Phasellus eleifend sodales nibh, sed pulvinar magna tincidunt lobortis. Nam finibus risus nec pulvinar hendrerit. Nulla quis dapibus elit. Sed sit amet mattis mi. Cras non est justo.
+
+                </Text>
+                <Text style={estilos.txt}>Maecenas ultrices ornare neque sed facilisis. Donec iaculis justo nec turpis mollis congue. Vivamus tempor sem a metus volutpat, id laoreet neque iaculis. Duis a lacus egestas neque imperdiet maximus at at ex. Nam urna diam, congue vitae nisl at, bibendum tempor mauris. Cras aliquet eu mauris non posuere. Nulla tristique aliquet tellus at tincidunt. Aliquam non ante et tellus laoreet aliquam. Nam ut pharetra libero, eu aliquam dolor. Nulla a dui orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla tempor mauris non viverra mollis. Nam egestas nulla quam, hendrerit dignissim lacus imperdiet in. Nam congue lacinia dolor. Aenean facilisis auctor hendrerit. Proin dapibus, tellus eu tempus viverra, ante nulla porta sem, et varius diam quam ut est.
+
+                </Text>
+                <Text style={estilos.txt}>Suspendisse potenti. Vivamus tempor velit ac nibh mollis semper. Nulla lorem sem, egestas ac rhoncus vitae, pellentesque quis ligula. Ut cursus velit eu mattis tristique. Integer placerat ex sed rutrum ultricies. Ut congue mi vitae orci gravida, a lobortis nunc imperdiet. In hendrerit ligula sed leo aliquet pellentesque. In eget orci at sem fringilla bibendum. Proin ac mollis purus. Aliquam aliquam eleifend urna et tincidunt.
+
+                </Text>
+                <Text style={estilos.txt}>Donec vulputate pellentesque dapibus. Ut posuere tempor dui sed vulputate. Mauris dignissim eget risus id pretium. Aliquam porta elit ante, id consequat eros elementum et. Phasellus malesuada libero vitae neque feugiat porta. Donec eget placerat eros. Phasellus augue quam, rhoncus eu diam sed, interdum pretium lacus. Phasellus non arcu sit amet leo suscipit condimentum. Sed dapibus egestas felis, et fringilla elit hendrerit sed. Sed nisi orci, dignissim vel euismod eget, egestas non justo. Nam et congue arcu. Aenean malesuada ex eu eros vehicula ultricies. Aenean sagittis posuere massa. Curabitur in nunc iaculis, cursus mauris eu, euismod purus.
+
+                </Text>
+                <Text style={estilos.txt}>Etiam vel eleifend nisi. In tempus metus at consectetur accumsan. Etiam lectus ex, finibus sit amet accumsan nec, iaculis vel nibh. Sed sed elementum nulla. Proin ultrices orci enim, sed vestibulum dolor fermentum ac. Pellentesque et faucibus mauris, vitae suscipit purus. Proin ornare eros et leo porta, ac dignissim mi tincidunt. Proin varius, massa sed suscipit tempor, risus arcu mattis turpis, non scelerisque magna ante sit amet ex. Vestibulum sodales, dolor nec auctor sollicitudin, nisl ipsum tincidunt enim, et consectetur purus nisl non ipsum. Nulla suscipit nisl sed quam vulputate vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur rutrum velit lacinia, condimentum massa id, commodo dolor. Fusce placerat quam vitae enim accumsan gravida. Fusce nisi odio, fringilla quis fringilla vitae, venenatis eu erat.
+
+                </Text>
+                <Text style={estilos.txt}>Aenean sit amet nisi a mauris ultricies sagittis. Donec tristique nisi velit, at ullamcorper justo maximus vitae. Cras ex massa, interdum id dictum eu, ultricies at lacus. Nam non scelerisque lorem. Aenean convallis nulla leo, nec auctor mi dignissim id. Vestibulum lobortis lobortis dui. In finibus rhoncus tortor sit amet egestas. Aenean euismod faucibus neque, eget mollis ligula porttitor vitae. Duis venenatis finibus dui id blandit. Nam quis sollicitudin magna, sed ultrices ipsum.
+
+                </Text>
+                <Text style={estilos.txt}>In accumsan velit dapibus lorem dapibus, nec convallis ligula cursus. Sed eget maximus libero. Etiam ut arcu sapien. Ut purus quam, accumsan et nisi sit amet, congue lacinia libero. Proin dui augue, molestie quis aliquam et, aliquet vitae nunc. Donec ac arcu bibendum, sollicitudin dolor nec, ultricies nulla. Pellentesque nec quam a dui elementum dignissim efficitur sed augue. Aliquam eu urna pulvinar, interdum ex eu, commodo elit. Vivamus feugiat cursus est at commodo. In neque elit, facilisis sit amet gravida eget, fermentum rutrum lectus. Proin sed eros et ipsum laoreet sagittis.
+
+                </Text>
+                <Text style={estilos.txt}>Vestibulum iaculis, felis quis ultrices vulputate, ante nulla rhoncus velit, sollicitudin sodales justo libero non velit. Integer ante ipsum, bibendum non ante quis, ullamcorper pretium orci. Cras semper lacinia ultricies. Donec interdum aliquam tortor at accumsan. Mauris vel felis a nulla lobortis bibendum in id metus. Cras porta, mauris ut pharetra sagittis, dui mauris elementum dolor, sed cursus augue arcu a lorem. Praesent tempus turpis a sapien porttitor, in rutrum nunc porta. Etiam pellentesque, augue vel malesuada imperdiet, sapien tellus dignissim ante, nec tempor nulla nisl eget nisi. Donec sed turpis at augue congue luctus vel nec urna. Vestibulum consequat vestibulum nibh quis egestas. Maecenas non risus est. Nulla ac sodales dui, ac hendrerit dui. Aenean pharetra felis scelerisque nisi lacinia pretium. Nulla molestie nibh non dapibus commodo. Etiam turpis tellus, aliquet vel scelerisque sed, ultrices id mi.</Text>
+            </ScrollView></View>
+    )
+}
+
+const estilos = {
+    contenedor: {
+        flex: 1, backgroundColor: '#F5F5F5', // Um cinza bem claro para fundo
+    },
+    txt: {
+        fontSize: 16,
+        lineHeight: 26, // Espaçamento entre linhas (importante para textos longos)
+        color: '#444',
+        marginBottom: 20, // Distância entre os parágrafos
+        textAlign: 'justify', // Alinhamento justificado para um visual limpo
+    },
+    rolagem: {
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+    }
+}
+
+Home.js: 
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+export default function Home() {
+    const nav = useNavigation();
+    return (
+        <View style={estilos.contenedor}>
+            <Text style={estilos.txt}>Bem-vindo!</Text>
+            <Button title="Sobre Nós" onPress={() => nav.navigate('Sobre')} />{/* Em funções que tem apenas uma linha de código, a arrow function não precisa de chaves */}
+            <Button title="Entrar" onPress={() => nav.navigate('Login')} />
+            <Button title="Estudo de Flex" onPress={() => nav.navigate('Flex')} />
+        </View>)
+}
+const estilos = StyleSheet.create({
+    contenedor: {
+        flex: 1, gap: 15, justifyContent: 'center',
+        alignItems: 'center'
+    },
+    txt: { fontSize: 30 }
+})
+
+Login.js:
+import { View, Text } from 'react-native';
+
+export default function Login() {
+    return (
+        <View>
+            <Text>Logado</Text>
+        </View>
+    )
+}
+
+App.js:
+import { NavigationContainer } from "@react-navigation/native";
+
+import Home from "./fonte/telas/Home";
+import Flex from "./fonte/telas/Flex";
+import Login from "./fonte/telas/Login";
+import Sobre from "./fonte/telas/Sobre";
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="Flex" component={Flex} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Sobre" component={Sobre} options={{ title: 'Sobre nós', headerStyle: { backgroundColor: '#cc0000' }, headerTintColor: '#fff' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
