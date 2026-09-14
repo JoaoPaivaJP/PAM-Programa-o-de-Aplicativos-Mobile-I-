@@ -1,0 +1,168 @@
+OBS: observar o código ATENTAMENTE!! Para não esquecer de colocar dentro da fonte/telas/produtos 
+(telas fica dentro de fontes, e dentro de telas fica o Home.js e o Servicos.js. Ja dentro do produtos fica Produto.js, Produtos.js e IndexProdutos.js)
+
+App.js:
+
+import 'react-native-gesture-handler';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Drawer = createDrawerNavigator();
+
+import Home from './fonte/telas/Home';
+import Servicos from './fonte/telas/Servicos';
+import Produtos from './fonte/telas/produtos/Produto';
+import IndexProdutos from './fonte/telas/produtos/IndexProdutos';
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen name= "Home" component= {Home} />
+        <Drawer.Screen name= "Produtos" component= {IndexProdutos} />
+        <Drawer.Screen name= "Serviços" component= {Servicos} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
+
+Home.js:
+
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function Home() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Tela Inicial</Text>
+      <Text style={styles.texto}>Bem-vindo!</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  titulo: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  texto: {
+    fontSize: 18,
+  },
+});
+
+Servicos.js:
+
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function Servicos() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Serviços</Text>
+      <Text style={styles.texto}>Econtre o que você precisa saber aqui!</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  titulo: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  texto: {
+    fontSize: 18,
+  },
+});
+
+Produto.js:
+
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function Produto() {
+  return (
+    <View style={styles.contenedor}>
+      <Text style={styles.texto}>Detalhes do Produto</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  contenedor: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  texto: {
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+});
+
+Produtos.js:
+
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+export default function Produtos({ navigation }) {
+  const verDetalhes = () => {
+    navigation.navigate('Produto');
+  };
+
+  return (
+    <View style={styles.contenedor}>
+      <Text style={styles.texto}>Produtos</Text>
+      <Button title="Ver detalhes" onPress={verDetalhes} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  contenedor: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  texto: {
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+});
+
+IndexProdutos.js:
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Produtos from "./Produtos";
+import Produto from './Produto';
+
+const Stack = createNativeStackNavigator();
+
+export default function IndexProdutos() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen 
+        name="Produtos"
+        component={Produtos}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen 
+        name="Produto"
+        component={Produto}
+      />
+    </Stack.Navigator>
+  );
+}
