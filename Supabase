@@ -1,0 +1,25 @@
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = 'https://aqtmsrremnvmnljqrseu.supabase.co';
+
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFxdG1zcnJlbW52bW5sanFyc2V1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2MDA1NTQsImV4cCI6MjEwODE3NjU1NH0.kTeMvAfx7wpyNsAGGp1x3TwXsfulxcwnUMU5jaO_Aqc';
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+async function testarConexao(nomeTabela) {
+    try {
+        const { data, error } = await supabase
+            .from(nomeTabela)
+            .select('*');
+
+        if (error) {
+            console.error(`Erro de acesso à tabela '${nomeTabela}':`, error.message);
+        } else {
+            console.log(`Acesso anônimo à tabela '${nomeTabela}' funcionou! Data:`, data);
+        }
+    } catch (err) {
+        console.error('Erro inesperado na requisição:', err);
+    }
+}
+
+testarConexao('Clientes');
