@@ -1,0 +1,86 @@
+App.js:
+
+import { NavigationContainer } from '@react-navigation/native';
+import Ver from './fonte/telas/Ver';
+import Criar from './fonte/telas/Criar';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Clientes" 
+          component={Ver} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="Cadastro" 
+          component={Criar} 
+          options={{ 
+            title: 'Cadastrar Cliente', 
+            headerStyle: { backgroundColor: '#3355aa' }, 
+            headerTintColor: '#fff' 
+          }} 
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+Criar.js:
+
+import { Text, View } from 'react-native';
+
+export default function Criar() {
+  return (
+    <View>
+      <Text>Criar</Text>
+    </View>
+  );
+}
+
+supabase.js:
+
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = 'https://aqtmsrremnvmnljqrseu.supabase.co'; // Substituir pelo endereço do seu banco de dados do Supabase 
+
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFxdG1zcnJlbW52bW5sanFyc2V1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2MDA1NTQsImV4cCI6MjEwODE3NjU1NH0.kTeMvAfx7wpyNsAGGp1x3TwXsfulxcwnUMU5jaO_Aqc'; // Substituir pela chave anônima do seu banco Supabase
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+Ver.js:
+
+import React, { useEffect, useState } from 'react';
+import { Text, View, FlatList, Button } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { supabase } from '../supabase';
+import { useNavigation } from '@react-navigation/native';
+
+export default function Ver() {
+
+    const nav = useNavigation();
+    const [clientes, setClientes] = useState([]);useEffect(() => {
+
+        const buscarDados = async () => { 
+
+            <SafeAreaView style={{ flex: 1}}> 
+            <View style={{ paddingHorizontal: 20, paddingVertical: 10, flexDirection: 'row' }}> 
+                <Text style={{ fontSize: 22, fontWeight: 'bold', marginRight: 10 }}>Clientes</Text> 
+                <Button title="Novo Cliente" onPress={() => nav.navigate ('Cadastro')} /> 
+            </View> 
+
+            <FlatList data={ clientes } keyExtractor = {(item) => item.id.toString()} renderltem = {({ item }) => (
+                <View style={{ padding: 20, borderBottomWidth: 1, borderColor: '#eee' }}>
+                    <Text style={{ fontSize: 18 }}>{item.nome}</Text>
+                    <Text>E-mail: {item.email}</Text>
+                </View >
+            )}
+            />
+            </SafeAreaView>
+        </SafeAreaProvider> 
+    };
+}
