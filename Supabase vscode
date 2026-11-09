@@ -63,24 +63,46 @@ import { useNavigation } from '@react-navigation/native';
 export default function Ver() {
 
     const nav = useNavigation();
-    const [clientes, setClientes] = useState([]);useEffect(() => {
+    const [clientes, setClientes] = useState([]);
 
-        const buscarDados = async () => { 
+    useEffect(() => {
 
-            <SafeAreaView style={{ flex: 1}}> 
-            <View style={{ paddingHorizontal: 20, paddingVertical: 10, flexDirection: 'row' }}> 
-                <Text style={{ fontSize: 22, fontWeight: 'bold', marginRight: 10 }}>Clientes</Text> 
-                <Button title="Novo Cliente" onPress={() => nav.navigate ('Cadastro')} /> 
-            </View> 
+        const buscarDados = async () => {
 
-            <FlatList data={ clientes } keyExtractor = {(item) => item.id.toString()} renderltem = {({ item }) => (
-                <View style={{ padding: 20, borderBottomWidth: 1, borderColor: '#eee' }}>
-                    <Text style={{ fontSize: 18 }}>{item.nome}</Text>
-                    <Text>E-mail: {item.email}</Text>
-                </View >
-            )}
-            />
+            const { data, error } = await supabase.from('Clientes').select('*');
+
+            if (!error) setClientes(data);
+
+        };
+
+        buscarDados();
+
+    }, []);
+
+    return (
+        <SafeAreaProvider>
+            <SafeAreaView style={{ flex: 1 }}>
+
+                <View style={{ paddingHorizontal: 20, paddingVertical: 10, flexDirection: 'row' }}>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', marginRight: 10 }}>
+                        Clientes
+                    </Text>
+
+                    <Button title="Novo Cliente" onPress={() => nav.navigate('Cadastro')} />
+                </View>
+
+                <FlatList
+                    data={clientes}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => (
+                        <View style={{ padding: 20, borderBottomWidth: 1, borderColor: '#eee' }}>
+                            <Text style={{ fontSize: 18 }}>{item.nome}</Text>
+                            <Text>E-mail: {item.email}</Text>
+                        </View>
+                    )}
+                />
+
             </SafeAreaView>
-        </SafeAreaProvider> 
-    };
+        </SafeAreaProvider>
+    );
 }
